@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900 & display: swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+}
+
+/* ================================ LOGIN PAGE ================================ */
+
+.row-login{
+    height: 100vh;
+}
+
+.col-login{
+    margin: auto 0;
+    position: relative;
+}
+
+.col-login h2{
+    font-weight: 700;
+}
+
+.col-login p{
+    font-weight: 500;
+}
+
+.col-login img{
+    width: 32px;
+    margin: auto 0;
+}
+
+.col-login .form-login{
+    margin: 4% 0 0;
+    width: 100%;
+}
+
+.col-login .form-label{
+    font-weight: 500;
+}
+
+.col-login .form-username,
+.col-login .form-password{
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+}
+
+.col-login .content-loggedin button{
+    margin: 4% 0 0;
+    width: 100%;
+    height: 48px;
+    background: #4B56D2;
+    border-radius: 10px;
+}
+
+.col-login .content-loggedin p{
+    margin: auto 0;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.reserved-login{
+    position: absolute;
+    bottom: 0;
+    left: 25.5%;
+    transform: translate(-25.5%);
+    width: auto;
+    text-align: center;
+}
+
+.col-login-image{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 50%;
+}
+
+/* ================================ END LOGIN PAGE ================================ */
+
+
+/* ================================ JOB PAGE ================================ */
+
+/* ----------------- Search Job ----------------- */
+
+#job-search {
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.form-job-description{
+    background-image: url(https://img.icons8.com/pastel-glyph/64/archive--v4.png);
+    background-size: 20px;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    text-indent: 30px;
+}
+
+.form-job-location{
+    background-image: url(https://img.icons8.com/ios-filled/50/marker.png);
+    background-size: 20px;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    text-indent: 30px;
+}
+
+.job-full-time{
+    position: absolute;
+    bottom: 0;
+    left: 66.8%;
+}
+
+.job-full-time p{
+    margin-left: 4%;
+    font-weight: 600;
+}
+
+.job-search-button{
+    position: absolute;
+    bottom: 18%;
+    left: 83.6%;
+}
+
+.job-search-button button{
+    background-color: #4B56D2;
+    height: 50%;
+    width: 100%;
+}
+
+/* ----------------- End Search Job ----------------- */
+
+
+/* ----------------- Job List ----------------- */
+
+#job-list-container{
+    margin-bottom: 4%;
+}
+
+#job-list-container h3{
+    font-weight: 600;
+    margin-bottom: 2%;
+}
+
+/* ----------------- End Job List ----------------- */
+
+
+/* ----------------- Header Job Detail ----------------- */
+
+#button-back{
+    margin-top: 4%;
+    margin-bottom: 2%;
+}
+
+.job-detail-company{
+    border: 4px solid #EEEEEE;
+    border-radius: 10px;
+}
+
+.company-name{
+    background-color: #FFFFFF;
+    border-radius: 6px 6px 0 0;
+    border: 1px solid #C7C8CC;
+}
+
+.company-name p{
+    display: flex;
+    justify-content: start;
+    margin: auto 0;
+    padding: 2%;
+}
+
+.company-logo{
+    background-color: #FFFFFF;
+    border-radius: 0 0 6px 6px;
+    border: 1px solid #C7C8CC;
+    padding: 2%;
+}
+
+.job-detail-apply{
+    margin-top: 4%;
+    border: 4px solid #EFF396;
+    border-radius: 10px;
+}
+
+.job-apply{
+    background-color: #F6FDC3;
+    border-radius: 6px 6px 0 0;
+    border: 1px solid #C7C8CC;
+}
+
+.job-apply p{
+    display: flex;
+    justify-content: start;
+    margin: auto 0;
+    padding: 2%;
+}
+
+.job-apply-description{
+    background-color: #F6FDC3;
+    border-radius: 0 0 6px 6px;
+    border: 1px solid #C7C8CC;
+    padding: 2%;
+}
+
+/* ----------------- End Header Job Detail ----------------- */
+
+/* ================================ END JOB PAGE ================================ */
