@@ -22,8 +22,6 @@ const Job = () => {
     const descriptionField = useRef();
     const locationField = useRef();
 
-    const limit = 5;
-
     const onSearch = async () => {
 
         const getDescription = descriptionField.current.value;
