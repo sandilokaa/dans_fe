@@ -16,11 +16,14 @@ const Job = () => {
     const navigate = useNavigate();
 
     const [jobList, setJobList] = useState([]);
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
 
     const descriptionField = useRef();
     const locationField = useRef();
 
-    
+    const limit = 5;
+
     const onSearch = async () => {
 
         const getDescription = descriptionField.current.value;
@@ -29,11 +32,10 @@ const Job = () => {
         const token = localStorage.getItem("token");
 
         const getJobListRequest = await axios.get(
-            `http://localhost:8080/v1/api/jobs?description=${getDescription}&location=${getLocation}`,
+            `http://localhost:8080/v1/api/jobs?description=${getDescription}&location=${getLocation}&page=${page}`,
             {
                 headers: {
-                    Authorization: `Bearer ${token}`,
-                    "Access-Control-Allow-Origin": "*"
+                    Authorization: `Bearer ${token}`
                 },
             }
         );
@@ -41,7 +43,11 @@ const Job = () => {
 
         const getJobListResponse = await getJobListRequest.data;
 
-        setJobList(getJobListResponse.data.handleGetJobList);
+        console.log(getJobListResponse);
+
+        setJobList(getJobListResponse.data.handleGetJobList.jobs);
+        setTotalPages(getJobListResponse.data.handleGetJobList.totalPages);
+
     };
 
     useEffect(() => {
@@ -49,7 +55,11 @@ const Job = () => {
         onSearch();
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [page]);
+
+    const handlePageChange = (newPage) => {
+        setPage(newPage);
+    };
 
     return (
 
@@ -60,7 +70,7 @@ const Job = () => {
                         <p style={{ fontWeight: "600" }}>Job Description</p>
                         <Form className="form-job-description">
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control className="form-job-description" type="text" placeholder="Filter by title, benefits, companies, expertise" ref={descriptionField}/>
+                                <Form.Control className="form-job-description" type="text" placeholder="Filter by title, benefits, companies, expertise" ref={descriptionField} />
                             </Form.Group>
                         </Form>
                     </Col>
@@ -68,7 +78,7 @@ const Job = () => {
                         <p style={{ fontWeight: "600" }}>Location</p>
                         <Form className="form-job-location">
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control className="form-job-location" type="text" placeholder="Filter by city, state, zip code or country" ref={locationField}/>
+                                <Form.Control className="form-job-location" type="text" placeholder="Filter by city, state, zip code or country" ref={locationField} />
                             </Form.Group>
                         </Form>
                     </Col>
@@ -106,6 +116,25 @@ const Job = () => {
                             </Col>
                         </Row>
                     )}
+                    <Row>
+                        <Col xs={12} lg={12}>
+                            {Array.from({ length: totalPages }, (_, index) => (
+                                <Button 
+                                    key={index}
+                                    onClick={() => handlePageChange(index + 1)} 
+                                    style={{ 
+                                        backgroundColor: page === index + 1 ? "#4B56D2" : "transparent", 
+                                        border: page === index + 1 ? "none" : "1px solid #000000", 
+                                        color: page === index + 1 ? "#FFFFFF" : "#000000",
+                                        marginRight: "1%", 
+                                        marginTop: "2%" 
+                                    }}
+                                >
+                                    {index + 1}
+                                </Button>
+                            ))}
+                        </Col>
+                    </Row>
                 </Row>
             </Container>
         </JobLayout>

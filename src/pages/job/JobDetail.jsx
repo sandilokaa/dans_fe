@@ -32,8 +32,7 @@ const JobDetail = () => {
                     `http://localhost:8080/v1/api/jobs/${id}`,
                     {
                         headers: {
-                            Authorization: `Bearer ${token}`,
-                            "Access-Control-Allow-Origin": "*"
+                            Authorization: `Bearer ${token}`
                         }
                     }
                 );
